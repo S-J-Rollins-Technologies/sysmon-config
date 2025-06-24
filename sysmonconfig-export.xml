@@ -836,29 +836,29 @@
 
 					<!-- Suspicious Filters Often Used in Attacks -->
 					<Filter name="Name" condition="contains any">
-					<!-- Permanent event filter names used by known malware or red team tools -->
-					<Keyword>ActiveScriptEventConsumer</Keyword>
-					<Keyword>CommandLineEventConsumer</Keyword>
+						<!-- Permanent event filter names used by known malware or red team tools -->
+						<Keyword>ActiveScriptEventConsumer</Keyword>
+						<Keyword>CommandLineEventConsumer</Keyword>
 					</Filter>
 
 					<!-- Rare Consumer Types Indicative of Malicious Activity -->
 					<Filter name="Type" condition="is">
-					<Type>CommandLineEventConsumer</Type>
+						<Type>CommandLineEventConsumer</Type>
 					</Filter>
 
 					<Consumer name="Name" condition="contains any">
-					<!-- Known suspicious consumer names -->
-					<Keyword>cmd</Keyword>
-					<Keyword>powershell</Keyword>
-					<Keyword>wscript</Keyword>
-					<Keyword>cscript</Keyword>
+						<!-- Known suspicious consumer names -->
+						<Keyword>cmd</Keyword>
+						<Keyword>powershell</Keyword>
+						<Keyword>wscript</Keyword>
+						<Keyword>cscript</Keyword>
 					</Consumer>
 
 					<!-- Bindings between consumers and filters -->
 					<Filter name="Consumer" condition="contains any">
-					<!-- Specific consumer types indicative of execution -->
-					<Keyword>CommandLineEventConsumer</Keyword>
-					<Keyword>ActiveScriptEventConsumer</Keyword>
+						<!-- Specific consumer types indicative of execution -->
+						<Keyword>CommandLineEventConsumer</Keyword>
+						<Keyword>ActiveScriptEventConsumer</Keyword>
 					</Filter>
 
 					<!-- Monitor suspicious EventType (should always be set, but good for tuning) -->
