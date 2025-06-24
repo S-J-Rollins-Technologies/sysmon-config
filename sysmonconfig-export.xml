@@ -376,15 +376,13 @@
 
 				<!-- Log DLLs loaded from unusual locations -->
 				<ImageLoaded condition="contains any">
-					<ImageLoaded>\AppData\</ImageLoaded>
-					<ImageLoaded>\Temp\</ImageLoaded>
-					<ImageLoaded>\ProgramData\</ImageLoaded>
-					<ImageLoaded>\Users\Public\</ImageLoaded>
-					<ImageLoaded>\RECYCLER\</ImageLoaded>
+					\AppData\;\Temp\;\ProgramData\;\Users\Public\;\RECYCLER\;
 				</ImageLoaded>
 
 				<!-- Log DLLs loaded from remote shares -->
-				<ImageLoaded condition="begin with">\\</ImageLoaded>
+				<ImageLoaded condition="begin with">
+                    \\
+                </ImageLoaded>
 
 				<!-- Monitor any non-Microsoft DLLs -->
 				<Signature condition="is not">Valid</Signature>
@@ -394,8 +392,7 @@
 			<ImageLoad onmatch="exclude">
 				<Signature condition="is">Valid</Signature>
 				<ImageLoaded condition="contains any">
-				<ImageLoaded>\System32\</ImageLoaded>
-				<ImageLoaded>\SysWOW64\</ImageLoaded>
+                    \System32\;\SysWOW64\;
 				</ImageLoaded>
 			</ImageLoad>
 			</RuleGroup>
@@ -837,28 +834,23 @@
 					<!-- Suspicious Filters Often Used in Attacks -->
 					<Filter name="Name" condition="contains any">
 						<!-- Permanent event filter names used by known malware or red team tools -->
-						<Keyword>ActiveScriptEventConsumer</Keyword>
-						<Keyword>CommandLineEventConsumer</Keyword>
+						ActiveScriptEventConsumer;CommandLineEventConsumer;
 					</Filter>
 
 					<!-- Rare Consumer Types Indicative of Malicious Activity -->
 					<Filter name="Type" condition="is">
-						<Type>CommandLineEventConsumer</Type>
+						CommandLineEventConsumer
 					</Filter>
 
 					<Consumer name="Name" condition="contains any">
 						<!-- Known suspicious consumer names -->
-						<Keyword>cmd</Keyword>
-						<Keyword>powershell</Keyword>
-						<Keyword>wscript</Keyword>
-						<Keyword>cscript</Keyword>
+						cmd;powershell;wscript;cscript;
 					</Consumer>
 
 					<!-- Bindings between consumers and filters -->
 					<Filter name="Consumer" condition="contains any">
-					<!-- Specific consumer types indicative of execution -->
-					<Keyword>CommandLineEventConsumer</Keyword>
-					<Keyword>ActiveScriptEventConsumer</Keyword>
+                        <!-- Specific consumer types indicative of execution -->
+                        CommandLineEventConsumer;ActiveScriptEventConsumer;
 					</Filter>
 
 					<!-- Monitor suspicious EventType (should always be set, but good for tuning) -->
@@ -870,14 +862,11 @@
 				<WmiEvent onmatch="exclude">
 					<!-- Exclude common legit WMI consumers/filters -->
 					<Filter name="Consumer" condition="contains any">
-					<Keyword>SecurityCenter</Keyword>
-					<Keyword>WindowsUpdate</Keyword>
-					<Keyword>CCM</Keyword> <!-- ConfigMgr -->
+                        SecurityCenter;WindowsUpdate;CCM;
+                        <!-- ConfigMgr -->
 					</Filter>
 					<Filter name="Filter" condition="contains any">
-					<Keyword>Win32_Battery</Keyword>
-					<Keyword>Win32_PowerManagementEvent</Keyword>
-					<Keyword>CCM</Keyword>
+                        Win32_Battery;Win32_PowerManagementEvent;CCM;
 					</Filter>
 				</WmiEvent>
 			</RuleGroup>
