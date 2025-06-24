@@ -10,7 +10,7 @@
 	Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
 -->
 
-<Sysmon schemaversion="4.50">
+<Sysmon schemaversion="4.90">
 	<!--SYSMON META CONFIG-->
 	<HashAlgorithms>md5,sha256,imphash</HashAlgorithms>
 	<CheckRevocation/> <!-- Check loaded drivers, log if their code-signing certificate has been revoked, in case malware stole one to sign a kernel driver -->
@@ -376,11 +376,11 @@
 
 				<!-- Log DLLs loaded from unusual locations -->
 				<ImageLoaded condition="contains any">
-					\AppData\;
-					\Temp\;
-					\ProgramData\;
-					\Users\Public\;
-					\RECYCLER\;
+					<ImageLoaded>\AppData\</ImageLoaded>
+					<ImageLoaded>\Temp\</ImageLoaded>
+					<ImageLoaded>\ProgramData\</ImageLoaded>
+					<ImageLoaded>\Users\Public\</ImageLoaded>
+					<ImageLoaded>\RECYCLER\</ImageLoaded>
 				</ImageLoaded>
 
 				<!-- Log DLLs loaded from remote shares -->
@@ -856,9 +856,9 @@
 
 					<!-- Bindings between consumers and filters -->
 					<Filter name="Consumer" condition="contains any">
-						<!-- Specific consumer types indicative of execution -->
-						<Keyword>CommandLineEventConsumer</Keyword>
-						<Keyword>ActiveScriptEventConsumer</Keyword>
+					<!-- Specific consumer types indicative of execution -->
+					<Keyword>CommandLineEventConsumer</Keyword>
+					<Keyword>ActiveScriptEventConsumer</Keyword>
 					</Filter>
 
 					<!-- Monitor suspicious EventType (should always be set, but good for tuning) -->
