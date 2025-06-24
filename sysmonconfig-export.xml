@@ -397,26 +397,6 @@
 			</ImageLoad>
 			</RuleGroup>
 
-		<!--SYSMON EVENT ID 8 : REMOTE THREAD CREATED [CreateRemoteThread]-->
-			<!--COMMENT:	Monitor for processes injecting code into other processes. Often used by malware to cloak their actions. Also when Firefox loads Flash.
-			[ https://attack.mitre.org/wiki/Technique/T1055 ] -->
-
-			<!--DATA: UtcTime, SourceProcessGuid, SourceProcessId, SourceImage, TargetProcessId, TargetImage, NewThreadId, StartAddress, StartModule, StartFunction-->
-			<RuleGroup name="CreateRemoteThread" groupRelation="or">
-				<CreateRemoteThread onmatch="exclude">
-					<!--COMMENT: Exclude mostly-safe sources and log anything else.-->
-					<SourceImage condition="is">C:\Windows\system32\wbem\WmiPrvSE.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\svchost.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\wininit.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\csrss.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\services.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\winlogon.exe</SourceImage>
-					<SourceImage condition="is">C:\Windows\system32\audiodg.exe</SourceImage>
-					<StartModule condition="is">C:\Windows\system32\kernel32.dll</StartModule>
-					<TargetImage condition="is">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</TargetImage>
-				</CreateRemoteThread>
-			</RuleGroup>
-
 		<!--SYSMON EVENT ID 10 : INTER-PROCESS ACCESS [ProcessAccess]-->
 			<!--EVENT 10: "Process accessed"-->
 			<!--COMMENT:	Can cause high system load, disabled by default.-->
