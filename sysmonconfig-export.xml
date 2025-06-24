@@ -1,13 +1,13 @@
 <!--
-  sysmon-config | A Sysmon configuration focused on default high-quality event tracing and easy customization by the community
-  Source version:	74 | Date: 2021-07-08
-  Source project:	https://github.com/SwiftOnSecurity/sysmon-config
-  Source license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
+	sysmon-config | A Sysmon configuration focused on default high-quality event tracing and easy customization by the community
+	Source version:	74 | Date: 2021-07-08
+	Source project:	https://github.com/SwiftOnSecurity/sysmon-config
+	Source license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
 
-  Fork version:	1.0
-  Fork author:	Connor Carroll
-  Fork project:	https://github.com/S-J-Rollins-Technologies/sysmon-config
-  Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
+	Fork version:	1.0
+	Fork author:	Connor Carroll
+	Fork project:	https://github.com/S-J-Rollins-Technologies/sysmon-config
+	Fork license:	Creative Commons Attribution 4.0 | You may privatize, fork, edit, teach, publish, or deploy for commercial use - with attribution in the text.
 -->
 
 <Sysmon schemaversion="4.50">
