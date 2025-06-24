@@ -376,11 +376,11 @@
 
 				<!-- Log DLLs loaded from unusual locations -->
 				<ImageLoaded condition="contains any">
-					<ImageLoaded>\AppData\</ImageLoaded>
-					<ImageLoaded>\Temp\</ImageLoaded>
-					<ImageLoaded>\ProgramData\</ImageLoaded>
-					<ImageLoaded>\Users\Public\</ImageLoaded>
-					<ImageLoaded>\RECYCLER\</ImageLoaded>
+					\AppData\;
+					\Temp\;
+					\ProgramData\;
+					\Users\Public\;
+					\RECYCLER\;
 				</ImageLoaded>
 
 				<!-- Log DLLs loaded from remote shares -->
